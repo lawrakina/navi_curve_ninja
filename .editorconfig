@@ -1,0 +1,11 @@
+# Дополнительные сведения о файле EDITORCONFIG: https://aka.ms/editorconfigdocs
+root = true
+
+# All files
+[*]
+indent_style = space
+charset = utf-8-bom
+
+# Xml files
+[*.xml]
+indent_size = 2

@@ -1,0 +1,203 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &-7158903543254475852
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7133bc5fa0d14003a5d102d2ba60ff52, type: 3}
+  m_Name: Void Event Listener State
+  m_EditorClassIdentifier: 
+  graph: {fileID: 11400000}
+  position: {x: -200, y: 56}
+  ports:
+    keys:
+    - Output
+    values:
+    - _fieldName: Output
+      _node: {fileID: -7158903543254475852}
+      _typeQualifiedName: Core.UI.Popups.Graph.StateTransition, Assembly-CSharp,
+        Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
+      connections:
+      - fieldName: Input
+        node: {fileID: -3081082196624782813}
+        reroutePoints: []
+      _direction: 1
+      _connectionType: 0
+      _typeConstraint: 0
+      _dynamic: 0
+  <EventKey>k__BackingField: eula_open
+--- !u!114 &-3081082196624782813
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: aa0b0ab1105e4c08bcafc94828e78977, type: 3}
+  m_Name: Condition State
+  m_EditorClassIdentifier: 
+  graph: {fileID: 11400000}
+  position: {x: 8, y: -72}
+  ports:
+    keys:
+    - Input
+    - True
+    - False
+    values:
+    - _fieldName: Input
+      _node: {fileID: -3081082196624782813}
+      _typeQualifiedName: Core.UI.Popups.Graph.StateTransition, Assembly-CSharp,
+        Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
+      connections:
+      - fieldName: Output
+        node: {fileID: -7158903543254475852}
+        reroutePoints: []
+      _direction: 0
+      _connectionType: 0
+      _typeConstraint: 0
+      _dynamic: 0
+    - _fieldName: True
+      _node: {fileID: -3081082196624782813}
+      _typeQualifiedName: Core.UI.Popups.Graph.StateTransition, Assembly-CSharp,
+        Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
+      connections:
+      - fieldName: Input
+        node: {fileID: 6732708908061987607}
+        reroutePoints: []
+      _direction: 1
+      _connectionType: 0
+      _typeConstraint: 0
+      _dynamic: 0
+    - _fieldName: False
+      _node: {fileID: -3081082196624782813}
+      _typeQualifiedName: Core.UI.Popups.Graph.StateTransition, Assembly-CSharp,
+        Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
+      connections:
+      - fieldName: Show
+        node: {fileID: 2515754797694964121}
+        reroutePoints: []
+      _direction: 1
+      _connectionType: 0
+      _typeConstraint: 0
+      _dynamic: 0
+  Condition:
+    rid: 5141756774290030612
+  references:
+    version: 2
+    RefIds:
+    - rid: 5141756774290030612
+      type: {class: EulaAcceptedCondition, ns: Core.UI.Popups.Graph.Conditions, asm: Assembly-CSharp}
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 82ff3c4a0dfd45f398a570bad98fbb74, type: 3}
+  m_Name: Loader UI
+  m_EditorClassIdentifier: 
+  nodes:
+  - {fileID: -3081082196624782813}
+  - {fileID: 2515754797694964121}
+  - {fileID: 6732708908061987607}
+  - {fileID: -7158903543254475852}
+--- !u!114 &2515754797694964121
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 37220a33ef3f4bc993d2569355549989, type: 3}
+  m_Name: UI Popup
+  m_EditorClassIdentifier: 
+  graph: {fileID: 11400000}
+  position: {x: 280, y: 72}
+  ports:
+    keys:
+    - Show
+    - OnClose
+    - ExitButtons
+    values:
+    - _fieldName: Show
+      _node: {fileID: 2515754797694964121}
+      _typeQualifiedName: Core.UI.Popups.Graph.StateTransition, Assembly-CSharp,
+        Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
+      connections:
+      - fieldName: False
+        node: {fileID: -3081082196624782813}
+        reroutePoints: []
+      _direction: 0
+      _connectionType: 0
+      _typeConstraint: 0
+      _dynamic: 0
+    - _fieldName: OnClose
+      _node: {fileID: 2515754797694964121}
+      _typeQualifiedName: Core.UI.Popups.Graph.StateTransition, Assembly-CSharp,
+        Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
+      connections:
+      - fieldName: Input
+        node: {fileID: 6732708908061987607}
+        reroutePoints: []
+      _direction: 1
+      _connectionType: 0
+      _typeConstraint: 0
+      _dynamic: 0
+    - _fieldName: ExitButtons
+      _node: {fileID: 2515754797694964121}
+      _typeQualifiedName: System.Collections.Generic.List`1[[Core.UI.Popups.Graph.PopupTransition,
+        Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null]],
+        mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089
+      connections: []
+      _direction: 1
+      _connectionType: 0
+      _typeConstraint: 0
+      _dynamic: 0
+  Prefab: {fileID: 6736287625906330412, guid: 10440b2eb7e31a14e91b471d7d184618, type: 3}
+  ExitButtons: []
+--- !u!114 &6732708908061987607
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c4344ec78a7840e0a4aaaec5496c3548, type: 3}
+  m_Name: Custom Event Invoker State
+  m_EditorClassIdentifier: 
+  graph: {fileID: 11400000}
+  position: {x: 520, y: -56}
+  ports:
+    keys:
+    - Input
+    values:
+    - _fieldName: Input
+      _node: {fileID: 6732708908061987607}
+      _typeQualifiedName: Core.UI.Popups.Graph.StateTransition, Assembly-CSharp,
+        Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
+      connections:
+      - fieldName: True
+        node: {fileID: -3081082196624782813}
+        reroutePoints: []
+      - fieldName: OnClose
+        node: {fileID: 2515754797694964121}
+        reroutePoints: []
+      _direction: 0
+      _connectionType: 0
+      _typeConstraint: 0
+      _dynamic: 0
+  <EventKey>k__BackingField: eula_close
